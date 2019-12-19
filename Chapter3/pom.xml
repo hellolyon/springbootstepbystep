@@ -4,10 +4,10 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.skyshit</groupId>
-	<artifactId>Chapter2</artifactId>
+	<artifactId>Chapter3</artifactId>
 	<version>1.0.0</version>
 	<packaging>jar</packaging>
-	<name>Chapter2</name>
+	<name>Chapter3</name>
 	<developers>
 		<developer>
 			<name>skyshit</name>

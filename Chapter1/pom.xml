@@ -3,19 +3,23 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.didispace</groupId>
+	<groupId>com.skyshit</groupId>
 	<artifactId>Chapter1</artifactId>
 	<version>1.0.0</version>
 	<packaging>jar</packaging>
 
 	<name>Chapter1</name>
-	<description>The first Spring Boot project</description>
-
+	<developers>
+		<developer>
+			<name>skyshit</name>
+			<email>312301029@qq.com</email>
+		</developer>
+	</developers>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.3.2.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/>
 	</parent>
 
 	<properties>
