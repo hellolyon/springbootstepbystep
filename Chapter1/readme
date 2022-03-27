@@ -8,8 +8,8 @@ http://127.0.0.1:8080/hello123
 http://127.0.0.1:8080/h23ello
 页面会显示报错
 
-这是因为在浏览器输入http://127.0.0.1:8080/hello时，com.skyshit.controller.HelloController.hello方法上的注解@RequestMapping("/hello")在起作用，系统调用到了com.skyshit.controller.HelloController.hello方法。
+这是因为在浏览器输入http://127.0.0.1:8080/hello时，com.lyon.controller.HelloController.hello方法上的注解@RequestMapping("/hello")在起作用，系统调用到了com.lyon.controller.HelloController.hello方法。
 
 作业
-1.修改com.skyshit.controller.HelloController.hello方法，返回Hello。
-2.创建一个方法com.skyshit.controller.HelloController.me，在浏览器输入http://127.0.0.1:8080/me时返回me。
+1.修改com.lyon.controller.HelloController.hello方法，返回Hello。
+2.创建一个方法com.lyon.controller.HelloController.me，在浏览器输入http://127.0.0.1:8080/me时返回me。
