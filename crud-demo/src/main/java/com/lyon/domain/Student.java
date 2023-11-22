@@ -1,5 +1,6 @@
 package com.lyon.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import java.util.Date;
@@ -29,6 +30,7 @@ public class Student {
     /**
      * 核酸检验时间
      */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date checkTime;
     /**
      * 是否密接人员：0：否，1：是

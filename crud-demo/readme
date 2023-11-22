@@ -1,0 +1,17 @@
+浏览器发送get请求
+http://127.0.0.1:8080/api/student/info/130421199105269270
+可以看到返回结果
+{"id":1,"type":1,"number":"130421199105269270","name":"万人秀","checkResult":0,"checkTime":"2022-03-21 06:09:17","isCloseContact":0,"status":0}
+
+用postman发送post请求，不会postman的找资料学习一下postman的简单用法
+http://127.0.0.1:8080/api/student/addInfo
+body为json格式，入参为
+{"type":1,"number":"130421199105269272","name":"小明","checkResult":0,"checkTime":"2022-03-21 06:09:17","isCloseContact":0,"status":0}
+正常执行后会有插入成功的返回信息
+
+此时可以看到数据库中新增加了一条数据
+还可以再使用postman发送get请求查询出这条数据
+http://127.0.0.1:8080/api/student/info/130421199105269272
+
+logback.xml配置文件中<root level="debug">改为debug后控制台可以打印mybaties执行的sql语句
+
