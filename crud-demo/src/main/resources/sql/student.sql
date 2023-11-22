@@ -37,8 +37,8 @@ CREATE TABLE `student`  (
 -- Records of student
 -- ----------------------------
 INSERT INTO `student` VALUES (1, 1, '130421199105269270', '万人秀', 0, '2022-03-21 14:09:17', 0, 0);
-INSERT INTO `student` VALUES (2, 1, '331003198610042412', '???', 0, '2022-03-21 14:09:17', 0, 0);
-INSERT INTO `student` VALUES (3, 1, '331003198610042412', '???', 0, '2022-03-21 14:09:17', 0, 0);
+INSERT INTO `student` VALUES (2, 1, '331003198610042412', 'tom', 0, '2022-03-21 14:09:17', 0, 0);
+INSERT INTO `student` VALUES (3, 1, '331003198610042412', 'jerry', 0, '2022-03-21 14:09:17', 0, 0);
 INSERT INTO `student` VALUES (4, 1, '331003198610042412', '黄轶肃', 0, '2022-03-21 14:09:17', 0, 0);
 
 SET FOREIGN_KEY_CHECKS = 1;
