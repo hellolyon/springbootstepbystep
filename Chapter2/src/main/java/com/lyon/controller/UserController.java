@@ -23,6 +23,7 @@ public class UserController {
 
     @RequestMapping(value = "/{id}",method= RequestMethod.GET)
     public User getUser(@PathVariable String id){
+        log.info("param id is {}",id);
         User user = userService.getUser(id);
         return user;
     }
