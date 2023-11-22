@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.lyon</groupId>
-	<artifactId>crud-demo</artifactId>
+	<artifactId>Chapter3-crud-demo</artifactId>
 	<version>1.0.0</version>
 	<packaging>jar</packaging>
 	<name>crud-demo</name>
