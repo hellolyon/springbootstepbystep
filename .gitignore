@@ -3,4 +3,3 @@
 *.iml
 *.log
 .idea
-/*/src/main/resources/application.properties
