@@ -27,6 +27,7 @@
         <module>Chapter2</module>
         <module>Chapter3-crud-demo</module>
         <module>Chapter4</module>
+        <module>Chapter5</module>
 
     </modules>
     <dependencyManagement>

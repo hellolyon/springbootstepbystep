@@ -1,0 +1,39 @@
+使用ResponseBodyAdvice对返回信息进行拦截
+参考资料
+https://juejin.cn/post/7023751970531835918
+测试请求
+http://127.0.0.1:8080/api/user/1
+返回值为
+{
+    "data": {
+        "id": 1,
+        "name": "张三",
+        "age": 10
+    },
+    "code": 0,
+    "message": "success",
+    "srvTime": 1702375884775
+}
+可以看到返回值增加了code和message信息，可以给前端用来统一判断接口是否成果
+在此基础上增加了异常处理
+框架代码为
+@ExceptionHandler(Exception.class)
+@ResponseBody
+BaseResponse handleException(HttpServletRequest request, HttpServletResponse response, HandlerMethod handler, Throwable ex) {
+    return BaseResponse.error(ex.getMessage());
+}
+
+业务层面代码为
+测试请求
+http://127.0.0.1:8080/api/user/100
+{
+    "data": null,
+    "code": 1,
+    "message": "user is not exit",
+    "srvTime": 1702376002697
+}
+这个返回值可以很直观地看到这个接口请求地user不存在，接口有很好地提示信息，同时在业务代码上只需要如下几行代码
+if (ObjectUtils.isEmpty(user)){
+    throw new RuntimeException("user is not exit");
+}
+
