@@ -28,6 +28,7 @@
         <module>Chapter3-crud-demo</module>
         <module>Chapter4</module>
         <module>Chapter5</module>
+        <module>Chapter6-login</module>
 
     </modules>
     <dependencyManagement>
@@ -55,8 +56,16 @@
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>3.4.2</version>
             </dependency>
-
-
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>5.8.23</version>
+            </dependency>
+            <dependency>
+                <groupId>p6spy</groupId>
+                <artifactId>p6spy</artifactId>
+                <version>3.9.1</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <dependencies>
