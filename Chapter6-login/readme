@@ -1,0 +1,57 @@
+参考资料 https://juejin.cn/post/6992562025318760461  里面的代码有些有问题，需要调整，主要看一下思路和流程
+我这里做了进一步功能简化
+本节增加p6spy组件用于打印执行sql，方便查看sql
+为了引入p6spy，Chapter6-login/src/main/resources/application.properties文件有改动，需要注意
+
+本节内容包括注册和登录，首先对user数据表进行修改，具体见
+Chapter6-login/src/main/resources/db.chapter2/user.sql
+删除原有的表后执行sql，在MySQL中重建表并增加一条数据
+
+发送post请求进行测试
+测试登录失败
+测试url http://127.0.0.1:8080/api/user/login
+测试报文 {"username":"zhangsan","password":"12345"}
+测试结果
+{
+         "data": null,
+         "code": 1,
+         "message": "用户名或密码错误",
+}
+同时控制台有打印相关sql
+ Execute SQL：SELECT id,name,username,password,age FROM user WHERE (username = 'zhangsan' AND password = '12345')
+测试登录成功
+测试url http://127.0.0.1:8080/api/user/login
+测试报文 {"username":"zhangsan","password":"123456"}
+测试结果
+{
+    "data": "89c7ea3b-aae6-4c00-9a3e-93aee426613b",
+    "code": 0,
+    "message": "success",
+}
+这里data字段值为token，后面测试登录状态时有用
+测试未登录状态
+get请求 http://127.0.0.1:8080/getName
+测试结果 please login
+
+测试有登录状态
+get请求 http://127.0.0.1:8080/getName
+header里面加token字段 89c7ea3b-aae6-4c00-9a3e-93aee426613b
+测试结果
+{
+    "data": {
+        "id": 1,
+        "name": "张三",
+        "username": "zhangsan",
+        "password": "123456",
+        "age": 10
+    },
+    "code": 0,
+    "message": "success"
+}
+登录功能实现
+整个功能用到了拦截器HandlerInterceptor，ThreadLocal类存线程的私有数据，HashMap用来存token信息，需要熟悉一下应用场景
+
+练习一：数据库中密码不存明文，改存MD5
+练习二：实现同一个账号第二次登录后将第一次登录的token置为无效，即一个账号只能在一处登录的功能。这个功能的实现需要新增加一个map存数据。
+练习三：实现注册功能
+练习四：实现用户登录超时后token失效
