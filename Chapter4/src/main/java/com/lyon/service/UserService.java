@@ -20,4 +20,8 @@ public class UserService {
         User user = userMapper.selectById(id);
         return user;
     }
+
+    public void saveUser(User user) {
+        userMapper.insert(user);
+    }
 }

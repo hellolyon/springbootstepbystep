@@ -1,0 +1,34 @@
+
+练习一：数据库中密码不存明文，改存MD5
+手动使用hutool的方法生成md5值
+DigestUtil.md5Hex(user.getPassword())
+替换数据库的user表的password值
+登录接口的查询语句
+LambdaQueryWrapper<User> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(User::getUsername,user.getUsername())
+                        .eq(User::getPassword,user.getPassword());
+替换为
+LambdaQueryWrapper<User> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(User::getUsername,user.getUsername())
+                        .eq(User::getPassword,DigestUtil.md5Hex(user.getPassword()));
+
+
+练习二：实现同一个账号第二次登录后将第一次登录的token置为无效，即一个账号只能在一处登录的功能。这个功能的实现需要新增加一个map存数据。
+
+com.lyon.service.UserService类加一个map存数据，key为username，value为token
+新map命名为userMap
+登录方法中验证用户密码后，用username去userMap中取token，如果取到了，就将session中token删除，然后再将新的token放入userMap和session中
+
+练习三：实现注册功能
+新增一个post接口，请求报文为{"username":"xx","password":"xxx"}
+获取到报文后查询数据库中是否有相同的username，如果有，返回用户名已存在异常
+如果没有的话新增一条数据
+
+练习四：实现用户登录超时后token失效
+比如实现10分钟登录失效
+User类加一个字段lastLoginTime，用来存用户最后登录时间
+登录成功后将当前时间存入lastLoginTime
+com.lyon.service.UserService#getUsernameFromSession中获取到User对象后拿到lastLoginTime
+判断当前时间和lastLoginTime的差值是否大于10分钟，如果大于10分钟，返回登录超时异常
+如果小于10分钟，更新lastLoginTime为当前时间
+

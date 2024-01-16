@@ -26,7 +26,10 @@ public class UserController {
         User user = userService.getUser(id);
         return user;
     }
-
+    @RequestMapping(value = "/save",method= RequestMethod.POST)
+    public void saveUser(User user) {
+        userService.saveUser(user);
+    }
 
 
 }
